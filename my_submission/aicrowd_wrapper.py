@@ -5,7 +5,7 @@ import os
 import numpy as np
 from PIL import Image
 
-from user_config import MySegmentationModel
+from my_submission.user_config import MySegmentationModel
 
 class AIcrowdWrapper:
     """

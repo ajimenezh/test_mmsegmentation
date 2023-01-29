@@ -2,7 +2,7 @@ import os
 from tqdm.auto import tqdm
 import numpy as np
 from PIL import Image
-from aicrowd_wrapper import AIcrowdWrapper
+from my_submission.aicrowd_wrapper import AIcrowdWrapper
 
 
 def check_data(datafolder):
