@@ -1,0 +1,8 @@
+{
+    "challenge_id": "semantic-segmentation",
+    "authors": [
+      "aicrowd-bot"
+    ],
+    "gpu": true,
+    "description": "(optional) description about your awesome model"
+}

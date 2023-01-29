@@ -1,0 +1,3 @@
+from test_segmentation_model import TestSegmentationModel
+
+MySegmentationModel = TestSegmentationModel
