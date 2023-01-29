@@ -1,7 +1,7 @@
 import numpy as np
 
 # Let's take a look at the dataset
-import mmcv
+#import mmcv
 import matplotlib.pyplot as plt
 from mmseg.apis import inference_segmentor, init_segmentor, show_result_pyplot
 from mmseg.core.evaluation import get_palette
@@ -103,6 +103,6 @@ class TestSegmentationModel:
             An 2D image with the pixels values corresponding to the label number
         """
         img = np.array(Image.fromarray(image_to_segment).convert('RGB'))
-        img = mmcv.imread(img)
+        #img = mmcv.imread(img)
         result = inference_segmentor(self.model, img)
         return result[0]
