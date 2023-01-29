@@ -2,7 +2,7 @@ import numpy as np
 
 # Let's take a look at the dataset
 #import mmcv
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 from mmseg.apis import inference_segmentor, init_segmentor, show_result_pyplot
 from mmseg.core.evaluation import get_palette
 import copy
