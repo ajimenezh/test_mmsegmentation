@@ -102,8 +102,13 @@ class TestSegmentationModel:
         Outputs:
             An 2D image with the pixels values corresponding to the label number
         """
-        img = np.array(Image.fromarray(image_to_segment).convert('RGB'))
-        #img = mmcv.imread(img)
-        
-        result = inference_segmentor(self.model, img)
-        return result[0]
+        # img = np.array(Image.fromarray(image_to_segment).convert('RGB'))
+        # #img = mmcv.imread(img)
+
+        # result = inference_segmentor(self.model, img)
+        # return result[0]
+
+        image_size = image_to_segment.shape[:2]
+        segmentation_results = np.random.choice(self.class_list, size=image_size)
+        return segmentation_results
+
