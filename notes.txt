@@ -1,0 +1,2 @@
+fastscn accuracy 0.22
+convnext tiny 4000 5h 0.57

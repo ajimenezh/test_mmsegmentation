@@ -104,5 +104,6 @@ class TestSegmentationModel:
         """
         img = np.array(Image.fromarray(image_to_segment).convert('RGB'))
         #img = mmcv.imread(img)
+        
         result = inference_segmentor(self.model, img)
         return result[0]
