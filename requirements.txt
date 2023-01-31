@@ -1,3 +1,8 @@
 numpy # Don't remove
 Pillow # Don't remove
 mmcv-full
+matplotlib
+mmcls>=0.20.1
+numpy
+packaging
+prettytable
