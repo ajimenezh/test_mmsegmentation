@@ -3,20 +3,20 @@ import numpy as np
 # Let's take a look at the dataset
 #import mmcv
 #import matplotlib.pyplot as plt
-from mmseg.apis import inference_segmentor, init_segmentor, show_result_pyplot
-from mmseg.core.evaluation import get_palette
-import copy
-from mmseg.utils import (collect_env, get_device, get_root_logger,
-                         setup_multi_processes)
-from mmcv.runner import (get_dist_info, init_dist, load_checkpoint,
-                         wrap_fp16_model)
-from mmcv import Config
-from mmseg.apis import set_random_seed
-from mmseg.utils import get_device
-from mmseg.datasets import build_dataset
-from mmseg.models import build_segmentor
+# from mmseg.apis import inference_segmentor, init_segmentor, show_result_pyplot
+# from mmseg.core.evaluation import get_palette
+# import copy
+# from mmseg.utils import (collect_env, get_device, get_root_logger,
+#                          setup_multi_processes)
+# from mmcv.runner import (get_dist_info, init_dist, load_checkpoint,
+#                          wrap_fp16_model)
+# from mmcv import Config
+# from mmseg.apis import set_random_seed
+# from mmseg.utils import get_device
+# from mmseg.datasets import build_dataset
+# from mmseg.models import build_segmentor
 
-from PIL import Image
+# from PIL import Image
 
 #img_dir = r"inputs"
 #data_root =  r"C:\\Users\\Alex\\Downloads\\suadd_23-v0.1\\"
