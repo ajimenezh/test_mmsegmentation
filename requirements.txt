@@ -12,6 +12,6 @@ torchvision
 yapf
 tqdm
 zipp
-opencv-python
+opencv-python<4.3
 scipy
 PyYAML

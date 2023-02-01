@@ -1,1 +1,5 @@
 git
+libxrender1
+libsm6
+libglib2.0-0
+libxext6
