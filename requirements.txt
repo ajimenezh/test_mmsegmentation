@@ -1,5 +1,6 @@
 numpy # Don't remove
 Pillow # Don't remove
+mmcv
 mmcv-full
 matplotlib
 mmcls>=0.20.1
@@ -12,3 +13,5 @@ yapf
 tqdm
 zipp
 opencv-python
+scipy
+PyYAML
