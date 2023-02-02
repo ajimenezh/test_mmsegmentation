@@ -1,7 +1,6 @@
 numpy # Don't remove
 Pillow # Don't remove
 matplotlib
-mmcls>=0.20.1
 numpy
 packaging
 prettytable
@@ -13,4 +12,6 @@ zipp
 opencv-python<4.3
 scipy
 PyYAML
+mmdet 
 mmcv-full
+mmcls
