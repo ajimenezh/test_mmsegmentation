@@ -47,7 +47,7 @@ extensions = [
 ]
 
 autodoc_mock_imports = [
-    'matplotlib', 'pycocotools', 'mmseg.version', 'mmcv.ops'
+    'matplotlib', 'mmseg.version', 'mmcv.ops'
 ]
 
 # Ignore >>> when copying code

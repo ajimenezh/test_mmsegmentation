@@ -3,4 +3,5 @@ libxrender1
 libsm6
 libglib2.0-0
 libxext6
+libc-dev
 gcc
