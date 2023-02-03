@@ -13,3 +13,4 @@ opencv-python<4.3
 scipy
 PyYAML 
 openmim
+mmcls
