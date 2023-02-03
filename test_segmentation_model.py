@@ -16,7 +16,7 @@ from mmseg.utils import get_device
 from mmseg.datasets import build_dataset
 from mmseg.models import build_segmentor
 
-# from PIL import Image
+from PIL import Image
 
 #img_dir = r"inputs"
 #data_root =  r"C:\\Users\\Alex\\Downloads\\suadd_23-v0.1\\"
@@ -46,52 +46,52 @@ class TestSegmentationModel:
         """
         self.class_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 255]
 
-        # #self.cfg = Config.fromfile('configs/convnext/upernet_convnext_tiny_fp16_512x512_160k_ade20k.py')
-        # self.cfg = Config.fromfile('configs/fastscnn/fast_scnn_lr0.12_8x4_160k_cityscapes.py')
+        #self.cfg = Config.fromfile('configs/convnext/upernet_convnext_tiny_fp16_512x512_160k_ade20k.py')
+        self.cfg = Config.fromfile('configs/fastscnn/fast_scnn_lr0.12_8x4_160k_cityscapes.py')
 
-        # # Since we use only one GPU, BN is used instead of SyncBN
-        # self.cfg.norm_cfg = dict(type='BN', requires_grad=True)
+        # Since we use only one GPU, BN is used instead of SyncBN
+        self.cfg.norm_cfg = dict(type='BN', requires_grad=True)
 
-        # # Set up working dir to save files and logs.
-        # self.cfg.work_dir = './work_dirs'
-        # #self.cfg.img_dir = img_dir
-        # #self.cfg.data_root =  data_root
-        # #self.cfg.ann_dir = ann_dir
+        # Set up working dir to save files and logs.
+        self.cfg.work_dir = './work_dirs'
+        #self.cfg.img_dir = img_dir
+        #self.cfg.data_root =  data_root
+        #self.cfg.ann_dir = ann_dir
 
-        # # Set seed to facitate reproducing the result
-        # self.cfg.seed = 0
-        # set_random_seed(0, deterministic=False)
-        # self.cfg.gpu_ids = range(1)
-        # self.cfg.device = get_device()
+        # Set seed to facitate reproducing the result
+        self.cfg.seed = 0
+        set_random_seed(0, deterministic=False)
+        self.cfg.gpu_ids = range(1)
+        self.cfg.device = get_device()
 
-        # # Build the detector
-        # self.model = build_segmentor(self.cfg.model)
-        # # Add an attribute for visualization convenience
-        # self.model.CLASSES = ( "WATER",
-        #         "ASPHALT",
-        #         "GRASS",
-        #         "HUMAN",
-        #         "ANIMAL",
-        #         "HIGH_VEGETATION",
-        #         "GROUND_VEHICLE",
-        #         "FACADE",
-        #         "WIRE",
-        #         "GARDEN_FURNITURE",
-        #         "CONCRETE",
-        #         "ROOF",
-        #         "GRAVEL",
-        #         "SOIL",
-        #         "PRIMEAIR_PATTERN",
-        #         "SNOW")
+        # Build the detector
+        self.model = build_segmentor(self.cfg.model)
+        # Add an attribute for visualization convenience
+        self.model.CLASSES = ( "WATER",
+                "ASPHALT",
+                "GRASS",
+                "HUMAN",
+                "ANIMAL",
+                "HIGH_VEGETATION",
+                "GROUND_VEHICLE",
+                "FACADE",
+                "WIRE",
+                "GARDEN_FURNITURE",
+                "CONCRETE",
+                "ROOF",
+                "GRAVEL",
+                "SOIL",
+                "PRIMEAIR_PATTERN",
+                "SNOW")
 
-        # self.cfg.model.pretrained = None
-        # # Enable test time augmentation
-        # self.cfg.data.test.pipeline[1].flip = True
+        self.cfg.model.pretrained = None
+        # Enable test time augmentation
+        self.cfg.data.test.pipeline[1].flip = True
 
-        # self.checkpoint_file = self.cfg.work_dir + "/latest.pth"
+        self.checkpoint_file = self.cfg.work_dir + "/latest.pth"
 
-        # self.model.cfg = self.cfg
-        # self.model = init_segmentor(self.cfg, self.checkpoint_file, device='cuda')
+        self.model.cfg = self.cfg
+        self.model = init_segmentor(self.cfg, self.checkpoint_file, device='cuda')
     
     def segment_single_image(self, image_to_segment):
         """
@@ -102,13 +102,9 @@ class TestSegmentationModel:
         Outputs:
             An 2D image with the pixels values corresponding to the label number
         """
-        # img = np.array(Image.fromarray(image_to_segment).convert('RGB'))
-        # #img = mmcv.imread(img)
+        img = np.array(Image.fromarray(image_to_segment).convert('RGB'))
+        #img = mmcv.imread(img)
 
-        # result = inference_segmentor(self.model, img)
-        # return result[0]
-
-        image_size = image_to_segment.shape[:2]
-        segmentation_results = np.random.choice(self.class_list, size=image_size)
-        return segmentation_results
+        result = inference_segmentor(self.model, img)
+        return result[0]
 
