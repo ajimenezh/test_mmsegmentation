@@ -46,8 +46,8 @@ class TestSegmentationModel:
         """
         self.class_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 255]
 
-        #self.cfg = Config.fromfile('configs/convnext/upernet_convnext_tiny_fp16_512x512_160k_ade20k.py')
-        self.cfg = Config.fromfile('configs/fastscnn/fast_scnn_lr0.12_8x4_160k_cityscapes.py')
+        self.cfg = Config.fromfile('configs/convnext/upernet_convnext_tiny_fp16_512x512_160k_ade20k.py')
+        #self.cfg = Config.fromfile('configs/fastscnn/fast_scnn_lr0.12_8x4_160k_cityscapes.py')
 
         # Since we use only one GPU, BN is used instead of SyncBN
         self.cfg.norm_cfg = dict(type='BN', requires_grad=True)
@@ -91,7 +91,7 @@ class TestSegmentationModel:
         self.checkpoint_file = self.cfg.work_dir + "/latest.pth"
 
         self.model.cfg = self.cfg
-        self.model = init_segmentor(self.cfg, self.checkpoint_file, device='cuda')
+        self.model = init_segmentor(self.cfg, self.checkpoint_file, device='cpu')
     
     def segment_single_image(self, image_to_segment):
         """
