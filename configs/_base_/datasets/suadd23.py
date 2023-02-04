@@ -1,3 +1,6 @@
+import sys
+IN_COLAB = 'google.colab' in sys.modules
+
 # dataset settings
 dataset_type = 'SUADDDataset'
 #data_root = r"C:\\Users\\Alex\\Downloads\\"
@@ -5,12 +8,14 @@ img_suffix = '.png'
 #img_dir = r"suadd_23_input_images-v0.1\\inputs"
 #ann_dir = r'suadd_23_semantic_annotations-v0.1\\semantic_annotations'
 
-# img_dir = r"inputs"
-# data_root =  r"./suadd_23-v0.1/"
-# ann_dir = r"semantic_annotations"
-img_dir = r"inputs"
-data_root =  r"C:\\Users\\Alex\\Downloads\\suadd_23-v0.1\\"
-ann_dir = r'semantic_annotations'
+if IN_COLAB:
+    img_dir = r"inputs"
+    data_root =  r"./suadd_23-v0.1/"
+    ann_dir = r"semantic_annotations"
+else:
+    img_dir = r"inputs"
+    data_root =  r"C:\\Users\\Alex\\Downloads\\suadd_23-v0.1\\"
+    ann_dir = r'semantic_annotations'
 
 img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)

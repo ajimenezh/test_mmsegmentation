@@ -91,7 +91,7 @@ class TestSegmentationModel:
         self.checkpoint_file = self.cfg.work_dir + "/latest.pth"
 
         self.model.cfg = self.cfg
-        self.model = init_segmentor(self.cfg, self.checkpoint_file, device='cpu')
+        self.model = init_segmentor(self.cfg, self.checkpoint_file, device='cuda')
     
     def segment_single_image(self, image_to_segment):
         """

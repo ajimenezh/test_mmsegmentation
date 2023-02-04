@@ -1,5 +1,5 @@
 # model settings
-norm_cfg = dict(type='SyncBN', requires_grad=True)
+norm_cfg = dict(type='BN', requires_grad=True)
 model = dict(
     type='EncoderDecoder',
     pretrained='open-mmlab://resnet50_v1c',
@@ -21,7 +21,7 @@ model = dict(
         channels=512,
         dilations=(1, 12, 24, 36),
         dropout_ratio=0.1,
-        num_classes=19,
+        num_classes=16,
         norm_cfg=norm_cfg,
         align_corners=False,
         loss_decode=dict(
@@ -34,7 +34,7 @@ model = dict(
         num_convs=1,
         concat_input=False,
         dropout_ratio=0.1,
-        num_classes=19,
+        num_classes=16,
         norm_cfg=norm_cfg,
         align_corners=False,
         loss_decode=dict(
